@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormControl, Validators, FormArray} from '@angular/forms';
 
-import { NavParams, ActionSheetController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, AlertController, ToastController } from 'ionic-angular';
+import { RecipesService } from '../../services/recipes'
 
 
 
@@ -17,7 +18,9 @@ export class EditRecipePage implements OnInit {
   constructor (private navParams: NavParams,
               private actionSheetController: ActionSheetController,
               private alertCtrl: AlertController,
-              private toastCtrl: ToastController) {}
+              private toastCtrl: ToastController,
+              private recipesService: RecipesService,
+              private navCtrl: NavController) {}
 
   ngOnInit() {
     this.mode = this.navParams.get('mode');
@@ -25,7 +28,18 @@ export class EditRecipePage implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    const value = this.recipeForm.value;
+    let ingredients = [];
+    if (value.ingredients.length > 0 ) {
+      ingredients = value.ingredients.map(name => {
+        return {name: name, amount: 1}
+      });
+    }
+
+    this.recipesService.addRecipe(value.title, value.description, value.difficulty, ingredients);
+    // optional since destroying the view anyways
+    this.recipeForm.reset();
+    this.navCtrl.popToRoot();
   }
 
   onManageIngredients() {
