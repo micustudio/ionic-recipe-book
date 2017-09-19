@@ -24,4 +24,8 @@ export class RecipesService {
                      this.recipes[index] = new Recipe(title, description, difficulty, ingredients);
                  }
 
+    removeRecipe(index: number) {
+        this.recipes.splice(index, 1);
+    }
+
 }
