@@ -16,6 +16,8 @@ import { AuthService } from '../services/auth';
 import { SignupPage } from '../pages/signup/signup';
 import { SigninPage } from '../pages/signin/signin';
 
+import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +27,8 @@ import { SigninPage } from '../pages/signin/signin';
     ShoppingListPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    SLOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { SigninPage } from '../pages/signin/signin';
     ShoppingListPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    SLOptionsPage
   ],
   providers: [
     StatusBar,

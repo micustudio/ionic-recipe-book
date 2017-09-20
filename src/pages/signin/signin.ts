@@ -17,7 +17,7 @@ export class SigninPage {
 
   onSignin(form: NgForm) {
     const loading = this.loadingCtrl.create({
-      content: 'Signing you...'
+      content: 'Signing you in...'
     });
     loading.present();
     this.authService.signin(form.value.email, form.value.password)
