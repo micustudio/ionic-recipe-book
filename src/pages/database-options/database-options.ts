@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 
 @Component({
-    selector: 'page-sl-options',
+    selector: 'page-database-options',
     template: `
         <ion-grid text-center>
             <ion-row>
